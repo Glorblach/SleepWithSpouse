@@ -1,0 +1,5 @@
+﻿l_english:
+	sleep_with_spouse_male_interaction:0 "A quiet evening..."
+	sleep_with_spouse_male_interaction_desc:0 "Have a private evening with [recipient.GetShortUINameNoTooltip], It's been a while since we have had some time alone."
+	sleep_with_spouse_female_interaction:0 "A quiet evening..."
+	sleep_with_spouse_female_interaction_desc:0 "Have a private evening with [recipient.GetShortUINameNoTooltip], It's been a while since we have had some time alone."

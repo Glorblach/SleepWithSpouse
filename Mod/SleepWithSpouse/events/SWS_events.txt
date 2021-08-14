@@ -1,0 +1,55 @@
+﻿
+namespace = sleep_with_spouse
+
+
+##################
+# Sleep with spouse event
+# by Nameless the Fameless
+# 1-100
+##################
+
+#Male actor
+sleep_with_spouse.1 = {
+	title = sws1.title
+	desc = sws1.desc
+	type = character_event
+	
+	theme = lover_relation
+	
+	left_portrait = {
+		character = root
+		triggered_animation = { animation = love }
+	}
+	
+	right_portrait = 	{
+		character = scope:recipient
+		triggered_animation = { animation = flirtation_left }
+	}
+	
+	immediate = { }
+	
+	option = { name = sws1.button }
+}
+
+#Female actor
+sleep_with_spouse.2 = {
+	title = sws2.title
+	desc = sws2.desc
+	type = character_event
+	
+	theme = lover_relation
+	
+	left_portrait = {
+		character = root
+		triggered_animation = { animation = love }
+	}
+	
+	right_portrait = {
+		character = scope:recipient
+		triggered_animation = { animation = flirtation_left }
+	}
+	
+	immediate = { }
+	
+	option = { name = sws2.button }
+}

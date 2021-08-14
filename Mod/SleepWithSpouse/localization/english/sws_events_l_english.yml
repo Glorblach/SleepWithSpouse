@@ -1,0 +1,9 @@
+﻿#TODO: make some better description, and switch on gender?
+l_english:
+ sws1.title:0 "A night of passion"
+ sws1.desc:0 "I decided to have a romantic evening with [recipient.GetShortUINameNoTooltip], and one thing led to another..."
+ sws1.button:0 "Aah..."
+ sws2.title:0 "A night of passion"
+ sws2.desc:0 "I decided to have a romantic evening with [recipient.GetShortUINameNoTooltip], and one thing led to another..."
+ sws2.button:0 "Aah..."
+ 

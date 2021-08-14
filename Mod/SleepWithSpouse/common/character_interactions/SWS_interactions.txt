@@ -1,0 +1,149 @@
+﻿sleep_with_spouse_male_interaction = {
+	category = interaction_category_friendly
+	use_diplomatic_range = yes
+	
+	desc = sleep_with_spouse_male_interaction_desc
+	
+	#only show if
+	is_shown = {
+		scope:actor = {
+			is_female = no
+		}
+		
+		scope:recipient = {
+			OR = {
+				is_spouse_of = scope:actor
+				is_concubine_of = scope:actor
+			}
+			
+			#limit on age
+			age < 41
+			
+			#no double pregnancies
+			NOT = { has_trait = pregnant }
+			
+			#Cause eww
+			is_adult = yes
+			is_imprisoned = no
+			is_female = yes
+			
+			#no stacking opinion
+			NOT = {
+				has_opinion_modifier = {
+					target = scope:actor
+					modifier = sws_opinion
+				}
+			}
+			
+			# and only if they like you enough
+			NOT = {
+				scope:recipient = {
+					opinion = {
+						target = scope:actor
+						value < 80
+					}
+				}
+			}
+		}
+	}
+	
+	# Should really be "if in court" but...
+	is_valid_showing_failures_only = {
+		scope:recipient = { is_diplomatically_available = yes }
+	}
+	
+	auto_accept = yes
+	
+	on_accept = {
+		scope:actor = { trigger_event = sleep_with_spouse.1 }
+		scope:recipient = {
+			make_pregnant = { father = scope:actor }
+			add_opinion = {
+				target = scope:actor
+				modifier = sws_opinion
+			}
+		}
+	}
+	
+	# Not for AI
+	ai_will_do = { base = 0 }
+	ai_potential = { is_ruler = yes }
+	ai_targets = { ai_recipients = spouses }
+	ai_frequency = 0
+}
+
+sleep_with_spouse_female_interaction = {
+	category = interaction_category_friendly
+	use_diplomatic_range = yes
+	
+	desc = sleep_with_spouse_female_interaction_desc
+	
+	#only show if
+	is_shown = {
+		scope:actor = {
+			is_female = yes
+			age < 41
+			#No double pregnancies
+			NOT = { has_trait = pregnant }
+			is_adult = yes
+			is_imprisoned = no
+		}
+		
+		scope:recipient = {
+			OR = {
+				is_spouse_of = scope:actor
+				is_concubine_of = scope:actor
+			}
+			
+			#Cause eww
+			is_adult = yes
+			is_imprisoned = no
+			is_female = no
+			
+			#no stacking opinion
+			NOT = {
+				has_opinion_modifier = {
+					target = scope:actor
+					modifier = sws_opinion
+				}
+			}
+			
+			# and only if they like you enough
+			NOT = {
+				scope:recipient = {
+					opinion = {
+						target = scope:actor
+						value < 80
+					}
+				}
+			}
+		}
+	}
+	
+	# Should really be "if in court" but...
+	is_valid_showing_failures_only = {
+		scope:recipient = { is_diplomatically_available = yes }
+	}
+	
+	auto_accept = yes
+	
+	on_accept = {
+		scope:actor = { 
+			trigger_event = sleep_with_spouse.2 
+			make_pregnant = { father = scope:recipient }
+		}
+		scope:recipient = {
+			add_opinion = {
+				target = scope:actor
+				modifier = sws_opinion
+			}
+		}
+	}
+	
+	# Not for AI
+	ai_will_do = { base = 0 }
+	ai_potential = { is_ruler = yes }
+	ai_targets = { ai_recipients = spouses }
+	ai_frequency = 0
+}
+
